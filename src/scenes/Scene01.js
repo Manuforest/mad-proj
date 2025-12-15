@@ -62,7 +62,7 @@ export class Scene01 {
         });
         this.bloomFilter = new AdvancedBloomFilter({ bloomScale: this.params.bloomStrength, blur: 8, threshold: 0.4 });
         this.rgbSplitFilter = new RGBSplitFilter([0, 0], [0, 0], [0, 0]);
-        const noiseFilter = new PIXI.filters.NoiseFilter(this.params.noiseStrength);
+        const noiseFilter = new PIXI.NoiseFilter(this.params.noiseStrength);
 
         this.effectLayer.filters = [this.adjustmentFilter, this.bloomFilter, this.rgbSplitFilter, noiseFilter];
 
