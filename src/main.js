@@ -29,6 +29,7 @@ function drawBars(height = 100) {
 
 const assets = {
     bg01: '/bg.jpg',
+    bg02: '/bg2.jpg',
     char01: '/char.png',
     char02: '/char02.png',
 };
