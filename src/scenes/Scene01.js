@@ -34,8 +34,8 @@ export class Scene01 {
             windSpeedY: -0.2,
 
             // 调色
-            gamma: 1.05, contrast: 0.9, saturation: 1.0, brightness: 1.0,
-            red: 1.0, green: 1.0, blue: 1.05,
+            gamma: 1.02, contrast: 1, saturation: 1.0, brightness: 1.0,
+            red: 1.0, green: 1.0, blue: 1.01,
         };
         this.timer = 0;
     }
