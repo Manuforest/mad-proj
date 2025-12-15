@@ -6,5 +6,6 @@ export default defineConfig({
     build: {
         outDir: 'dist', // 打包输出目录
         assetsDir: 'assets', // 资源目录
+
     }
 });
