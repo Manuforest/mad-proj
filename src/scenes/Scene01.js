@@ -1,7 +1,6 @@
 import * as PIXI from 'pixi.js';
 import { gsap } from 'gsap';
 import { AdvancedBloomFilter, RGBSplitFilter, AdjustmentFilter } from 'pixi-filters';
-import GUI from 'lil-gui';
 
 export class Scene01 {
     constructor(app) {
@@ -181,11 +180,6 @@ export class Scene01 {
             this.petals.push(p);
             this.particlesContainer.addChild(p);
         }
-    }
-
-    setupGUI() {
-        this.gui = new GUI({ title: 'Scene 01' });
-        // GUI内容略
     }
 
     playIntro() {
