@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>一夏的追忆</title>
+  <style>
+    body { margin: 0; overflow: hidden; background: #000; user-select: none; }
+    canvas { display: block; }
+
+    /* 全屏覆盖层 */
+    #intro-layer {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: #000;
+      display: flex; justify-content: center; align-items: center;
+      z-index: 9999;
+    }
+
+    /* 涂抹按钮容器 */
+    .brush-btn {
+      position: relative;
+      width: 260px;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    /* 悬停微动效果 */
+    .brush-btn:hover { transform: scale(1.05) rotate(-2deg); }
+    .brush-btn:active { transform: scale(0.95); }
+
+    /* SVG 涂抹背景 (绝对定位在文字后面) */
+    .brush-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 1;
+      fill: #ffffff; /* 涂抹颜色 */
+      opacity: 0.9;
+      filter: drop-shadow(0 0 5px rgba(255,255,255,0.5)); /* 发光质感 */
+    }
+
+    /* 按钮文字 */
+    .btn-text {
+      position: relative;
+      z-index: 2; /* 确保文字在涂抹层上面 */
+      color: #000; /* 黑字白底 */
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
+      font-size: 18px;
+      letter-spacing: 4px;
+      pointer-events: none; /* 让鼠标事件穿透文字打到 div 上 */
+    }
+  </style>
+</head>
+<body>
+
+<!-- UI 层 -->
+<div id="intro-layer">
+  <div id="start-btn" class="brush-btn">
+    <!-- 纯代码绘制的涂抹形状 (无需图片) -->
+    <svg class="brush-bg" viewBox="0 0 300 100" preserveAspectRatio="none">
+      <!-- 这是一个模拟笔触的粗糙路径 -->
+      <path d="M10,50 Q50,5 150,15 T290,50 Q250,95 150,85 T10,50 Z
+                         M20,50 C40,20 100,20 120,50 S200,80 280,50
+                         L290,55 C200,95 100,95 10,55 Z" />
+    </svg>
+    <span class="btn-text">CLICK START</span>
+  </div>
+</div>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
