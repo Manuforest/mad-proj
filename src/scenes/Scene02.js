@@ -260,7 +260,14 @@ export class Scene02 {
         gsap.to(this.charContainer, {
             y: cy + 50,
             duration: 1.5,
-            ease: "elastic.out(1, 0.5)" // 弹性吸附感
+            ease: "elastic.out(1, 0.5)",// 弹性吸附感
+            onComplete: () => {
+                if (this.hintText) {
+                    this.hintText.text = "> SCROLL TO CONTINUE <";
+                    this.hintText.style.fill = 0x000000;
+                    gsap.to(this.hintText, { alpha: 0.5, yoyo: true, repeat: -1, duration: 0.8 });
+                }
+            }
         });
 
         // 4. 姿态修正 & 震动
@@ -336,13 +343,13 @@ export class Scene02 {
             if (this.hintText) {
                 if (this.isMouseDown && isHovering) {
                     this.hintText.text = ">>> SYNCING <<<";
-                    this.hintText.style.fill = 0xFFFFFF; // 高亮白
+                    this.hintText.style.fill = 0xFFFFFF;
                 } else if (isHovering) {
                     this.hintText.text = "[ HOLD LMB ]";
                     this.hintText.style.fill = this.params.accentColor;
                 } else {
                     this.hintText.text = "! TARGET LOST !";
-                    this.hintText.style.fill = 0xFF5555; // 警告红
+                    this.hintText.style.fill = 0xFF5555;
                 }
             }
 
